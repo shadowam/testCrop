@@ -1,0 +1,147 @@
+.btn {
+  padding-left: .75rem;
+  padding-right: .75rem;
+}
+
+label.btn {
+  margin-bottom: 0;
+}
+
+.d-flex > .btn {
+  flex: 1;
+}
+
+.img-container,
+.img-preview {
+  text-align: center;
+  width: 100%;
+}
+
+.img-container {
+  margin-bottom: 1rem;
+  max-height: 497px;
+  min-height: 200px;
+}
+
+@media (min-width: 768px) {
+  .img-container {
+    min-height: 497px;
+  }
+}
+
+.img-container > img {
+  max-width: 100%;
+}
+
+.docs-preview {
+  margin-right: -1rem;
+}
+
+.img-preview {
+  float: left;
+  margin-bottom: .5rem;
+  margin-right: .5rem;
+  overflow: hidden;
+}
+
+.img-preview > img {
+  max-width: 100%;
+}
+
+.preview-lg {
+  max-height: 302px;
+  height: 100%;
+  width: 100%;
+}
+
+.docs-data > .input-group {
+  margin-bottom: .5rem;
+}
+
+.docs-data .input-group-prepend .input-group-text {
+  width: 4rem;
+}
+
+.docs-data .input-group-append .input-group-text {
+  width: 3.4rem;
+}
+
+.docs-data .input-group-append .btn-success {
+  width: 3.4rem;
+}
+
+.botoes-funcoes > .btn,
+.botoes-funcoes > .btn-group,
+.botoes-funcoes > .form-control {
+  margin-bottom: .5rem;
+  margin-right: .25rem;
+}
+
+.docs-tooltip {
+  display: block;
+  margin: -.5rem -.75rem;
+  padding: .5rem .75rem;
+}
+
+.docs-tooltip > .icon {
+  margin: 0 -.25rem;
+  vertical-align: top;
+}
+
+.tooltip-inner {
+  white-space: normal;
+}
+
+.btn-upload .tooltip-inner,
+.btn-toggle .tooltip-inner {
+  white-space: nowrap;
+}
+
+.btn-toggle {
+  padding: .5rem;
+}
+
+.btn-toggle > .docs-tooltip {
+  margin: -.5rem;
+  padding: .5rem;
+}
+
+@media (max-width: 400px) {
+  .btn-group-crop {
+    margin-right: -1rem!important;
+  }
+
+  .btn-group-crop > .btn {
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+
+  .btn-group-crop .docs-tooltip {
+    margin-left: -.5rem;
+    margin-right: -.5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+}
+
+.docs-options .dropdown-menu {
+  width: 100%;
+}
+
+.docs-options .dropdown-menu > li {
+  font-size: .875rem;
+  padding: .125rem 1rem;
+}
+
+.docs-options .dropdown-menu .form-check-label {
+  display: block;
+}
+
+.docs-cropped .modal-body {
+  text-align: center;
+}
+
+.docs-cropped .modal-body > img,
+.docs-cropped .modal-body > canvas {
+  max-width: 100%;
+}

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Teste cropar imagem">
+  <meta name="author" content="Chen Fengyuan">
+  <title>CROPADOR</title>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/cropper.css">
+  <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body style="background-color: #333;">
+  <!--[if lt IE 9]>
+  <div class="alert alert-warning alert-dismissible fade show m-0 rounded-0" role="alert">
+    You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <![endif]-->
+
+  <!-- Header -->
+  <header class="navbar navbar-light navbar-expand-md" style="background-color: white; border-bottom: 1px solid black">
+    <div class="container">
+      <a class="navbar-brand" href="./">THE BIG CROPEIRO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <br>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-9">
+        <!-- <h3>Demo:</h3> -->
+        <div class="img-container">
+          <img src="images/picture.jpg" alt="Picture">
+        </div>
+
+        <div class="row" id="actions">
+          <div class="col-md-12 botoes-funcoes">
+            <!-- <h3>Toolbar:</h3> -->
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary" data-method="setDragMode" data-option="move" title="Move">
+                <span class="docs-tooltip" data-toggle="tooltip" title="Modo: Mover imagem">
+                  <span class="fa fa-arrows"></span>
+                </span>
+              </button>
+              <button type="button" class="btn btn-primary" data-method="setDragMode" data-option="crop" title="Crop">
+                <span class="docs-tooltip" data-toggle="tooltip" title="Modo: Recortar imagem">
+                  <span class="fa fa-crop"></span>
+                </span>
+              </button>
+            </div>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary" data-method="zoom" data-option="0.1" title="Zoom In">
+                <span class="docs-tooltip" data-toggle="tooltip" title="+ Zoom">
+                  <span class="fa fa-search-plus"></span>
+                </span>
+              </button>
+              <button type="button" class="btn btn-primary" data-method="zoom" data-option="-0.1" title="Zoom Out">
+                <span class="docs-tooltip" data-toggle="tooltip" title="- Zoom">
+                  <span class="fa fa-search-minus"></span>
+                </span>
+              </button>
+            </div>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary" data-method="move" data-option="-10" data-second-option="0" title="Move Left">
+                <span class="docs-tooltip" data-toggle="tooltip" title="Mover para esquerda">
+                  <span class="fa fa-arrow-left"></span>
+                </span>
+              </button>
+              <button type="button" class="btn btn-primary" data-method="move" data-option="10" data-second-option="0" title="Move Right">
+                <span class="docs-tooltip" data-toggle="tooltip" title="Mover para direita">
+                  <span class="fa fa-arrow-right"></span>
+                </span>
+              </button>
+              <button type="button" class="btn btn-primary" data-method="move" data-option="0" data-second-option="-10" title="Move Up">
+                <span class="docs-tooltip" data-toggle="tooltip" title="Mover para cima">
+                  <span class="fa fa-arrow-up"></span>
+                </span>
+              </button>
+              <button type="button" class="btn btn-primary" data-method="move" data-option="0" data-second-option="10" title="Move Down">
+                <span class="docs-tooltip" data-toggle="tooltip" title="Mover para baixo">
+                  <span class="fa fa-arrow-down"></span>
+                </span>
+              </button>
+            </div>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary" data-method="crop" title="Crop">
+                <span class="docs-tooltip" data-toggle="tooltip" title="cropper.crop()">
+                  <span class="fa fa-check"></span>
+                </span>
+              </button>
+              <button type="button" class="btn btn-primary" data-method="clear" title="Clear">
+                <span class="docs-tooltip" data-toggle="tooltip" title="cropper.clear()">
+                  <span class="fa fa-remove"></span>
+                </span>
+              </button>
+            </div>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary" data-method="reset" title="Reset">
+                <span class="docs-tooltip" data-toggle="tooltip" title="cropper.reset()">
+                  <span class="fa fa-refresh"></span>
+                </span>
+              </button>
+              <label class="btn btn-primary btn-upload" for="inputImage" title="Upload image file">
+                <input type="file" class="sr-only" id="inputImage" name="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
+                <span class="docs-tooltip" data-toggle="tooltip" title="Importar imagem com URLs Blob">
+                  <span class="fa fa-upload"></span>
+                </span>
+              </label>
+              <button type="button" class="btn btn-primary" data-method="destroy" title="Destroy">
+                <span class="docs-tooltip" data-toggle="tooltip" title="cropper.destroy()">
+                  <span class="fa fa-power-off"></span>
+                </span>
+              </button>
+            </div>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary" data-method="getCroppedCanvas" data-option="{ &quot;maxWidth&quot;: 4096, &quot;maxHeight&quot;: 4096 }">
+                <span class="docs-tooltip" data-toggle="tooltip" title="cropper.getCroppedCanvas({ maxWidth: 4096, maxHeight: 4096 })">
+                  cnpjEmitente
+                </span>
+              </button>
+              <button type="button" class="btn btn-danger" data-method="clear" title="Clear" id='excluirCrop'>
+                <span class="docs-tooltip" data-toggle="tooltip" title="cropper.clear()">
+                  <span class="fa fa-remove"></span>
+                </span>
+              </button>
+            </div>
+
+            <div class="btn-group">              
+              <button type="button" class="btn btn-secondary" data-method="getData" data-option data-target="#salvar">
+                <span class="docs-tooltip" data-toggle="tooltip" title="cropper.getData()">
+                  Get Data
+                </span>
+              </button>
+              <button type="button" class="btn btn-secondary" data-method="setData" data-target="#salvar">
+                <span class="docs-tooltip" data-toggle="tooltip" title="cropper.setData(data)">
+                  Set Data
+                </span>
+              </button>
+            </div>
+
+            <div class="btn-group btn-group-crop">
+              <button type="button" class="btn btn-success" data-method="getCroppedCanvas" data-option="{ &quot;maxWidth&quot;: 4096, &quot;maxHeight&quot;: 4096 }">
+                <span class="docs-tooltip" data-toggle="tooltip" title="cropper.getCroppedCanvas({ maxWidth: 4096, maxHeight: 4096 })">
+                  Mostrar imagem recortada 
+                </span>
+              </button>
+            </div>
+
+            <!-- Show the cropped image in modal -->
+            <div class="modal fade docs-cropped" id="getCroppedCanvasModal" role="dialog" aria-hidden="true" aria-labelledby="getCroppedCanvasTitle" tabindex="-1">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="getCroppedCanvasTitle">Selecionado:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body"></div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <a class="btn btn-primary" id="download" href="javascript:void(0);" download="cropped.jpg">Download</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.modal -->
+
+          </div><!-- /.docs-buttons -->
+
+        </div>
+
+      </div> <!-- class="col-md-9" -->
+
+      <div class="col-md-3">
+        <!-- <h3>Preview:</h3> -->
+          <div class="img-preview preview-lg"></div>
+        <!-- <h3>Data:</h3> -->
+        <div class="docs-data">
+          <div class="input-group input-group-sm">
+            <span class="input-group-prepend">
+              <label class="input-group-text" for="dataX">X</label>
+            </span>
+            <input type="text" class="form-control" id="dataX" placeholder="x">
+            <span class="input-group-append">
+              <span class="input-group-text">px</span>
+            </span>
+          </div>
+          <div class="input-group input-group-sm">
+            <span class="input-group-prepend">
+              <label class="input-group-text" for="dataY">Y</label>
+            </span>
+            <input type="text" class="form-control" id="dataY" placeholder="y">
+            <span class="input-group-append">
+              <span class="input-group-text">px</span>
+            </span>
+          </div>
+          <div class="input-group input-group-sm">
+            <span class="input-group-prepend">
+              <label class="input-group-text" for="dataWidth">Largura</label>
+            </span>
+            <input type="text" class="form-control" id="dataWidth" placeholder="largura">
+            <span class="input-group-append">
+              <span class="input-group-text">px</span>
+            </span>
+          </div>
+          <div class="input-group input-group-sm">
+            <span class="input-group-prepend">
+              <label class="input-group-text" for="dataHeight">Altura</label>
+            </span>
+            <input type="text" class="form-control" id="dataHeight" placeholder="altura">
+            <span class="input-group-append">
+              <span class="input-group-text">px</span>
+            </span>
+          </div>
+
+          <div class="input-group input-group-sm">
+            <span class="input-group-prepend">
+              <label class="input-group-text" for="variavel">Variavel</label>
+            </span>
+            <input type="text" class="form-control" id="variavel" placeholder="Digite nome para a variável">
+            <span class="input-group-append" id="salvar">
+              <span class="btn btn-success">Salvar</span>
+            </span>
+          </div>
+
+        </div>
+
+        <div id="testB">
+          <div class="col-md-3 docs-vsf2">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary" data-method="getCroppedCanvas" data-option="{ &quot;maxWidth&quot;: 4096, &quot;maxHeight&quot;: 4096 }">
+                <span class="docs-tooltip" data-toggle="tooltip" title="cropper.getCroppedCanvas({ maxWidth: 4096, maxHeight: 4096 })">
+                  cnpjEmitente
+                </span>
+              </button>
+              <button type="button" class="btn btn-danger" data-method="clear" title="Clear" id="excluirCrop">
+                <span class="docs-tooltip" data-toggle="tooltip" title="cropper.clear()">
+                  <span class="fa fa-remove"></span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/jquery-3.3.1.slim.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/cropper.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
